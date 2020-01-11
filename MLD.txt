@@ -1,0 +1,27 @@
+système_educatif = (systVille VARCHAR(50));
+service = (ID_service INT, Num_employe INT, NomComplet VARCHAR(50));
+niveau = (nivEtudes INT);
+enseignement = (#(ID_service, Num_employe));
+surveillance = (#(ID_service, Num_employe));
+absence = (nbre_Abs INT, type_Abs VARCHAR(50));
+comptable = (#(ID_service, Num_employe));
+mode_payement = (mode VARCHAR(50), #(#(ID_service, Num_employe))*);
+fillière = (ID_fill INT, nom_fill VARCHAR(50), #mode*);
+professeur = (#(#(ID_service, Num_employe)));
+élève = (ID_Eleve INT, nomComplet VARCHAR(50), Adresse VARCHAR(150), Phone VARCHAR(11), email VARCHAR(50), #systVille, #ID_fill, #mode, #systVille_1);
+modèle = (IDmodele INT, nomModele VARCHAR(50), coefficient INT, president VARCHAR(50), #ID_Eleve);
+ingenieur = (#ID_Eleve);
+matiere = (IDmatiere INT, nomMatiere VARCHAR(50), coefficient VARCHAR(50), #IDmodele);
+avoir = (#systVille, #(ID_service, Num_employe));
+contenir = (#ID_fill, #IDmatiere, #nivEtudes, #IDmodele);
+diviser = (#IDmodele, #nivEtudes);
+passer = (#ID_Eleve, #nivEtudes);
+devenir = (#ID_Eleve, #(#ID_Eleve_1));
+diplomer = (#systVille, #(#ID_Eleve));
+enseigner = (#IDmatiere, #(#(#(ID_service, Num_employe))));
+tester = (#ID_Eleve, #(#(#(ID_service, Num_employe))));
+controler = (#(#(#(ID_service, Num_employe))), #(#(ID_service_1, Num_employe_1)), #nbre_Abs);
+absentir = (#ID_Eleve, #nbre_Abs);
+
+
+realisé par Aymane Talibi élève inenieur 
